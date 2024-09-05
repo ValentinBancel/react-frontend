@@ -1,0 +1,34 @@
+/* src/components/Header.css */
+.header {
+    display: flex; /* Utilisation de Flexbox pour aligner les éléments */
+    justify-content: space-between; /* Espace entre les éléments */
+    align-items: center; /* Alignement vertical centré */
+    background-color: #282c34; /* Couleur d'arrière-plan */
+    padding: 20px; /* Espacement intérieur */
+    color: white; /* Couleur du texte */
+}
+
+.header-left h1 {
+    margin: 0; /* Supprime les marges */
+    font-size: 1.5rem; /* Taille de la police */
+}
+
+.header-right ul {
+    list-style: none; /* Supprime les puces de la liste */
+    padding: 0; /* Supprime le padding */
+    margin: 0; /* Supprime la marge */
+    display: flex; /* Utilisation de Flexbox pour les éléments de la liste */
+}
+
+.header-right li {
+    margin-left: 20px; /* Espacement entre les liens */
+}
+
+.header-right a {
+    color: white; /* Couleur des liens */
+    text-decoration: none; /* Supprime le soulignement des liens */
+}
+
+.header-right a:hover {
+    text-decoration: underline; /* Ajoute un soulignement au survol */
+}
