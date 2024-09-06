@@ -1,43 +1,41 @@
-// src/components/Header.js
 import React from 'react';
 
-
-function Header({ title, festivalPage}) {
+function Footer() {
     return (
-        <header className="flex justify-between items-center p-5 bg-black text-white">
-            <div className="header-left">
-                <h1 className="m-0">{title}</h1>
+        <footer className="flex justify-between items-center p-5 bg-black text-white">
+            <div className="footer-left">
+                <p className="m-0">© {new Date().getFullYear()} Ton Site. Tous droits réservés.</p>
             </div>
-            <nav className="header-right">
+            <nav className="footer-right">
                 <ul className="flex list-none m-0 p-0 gap-4">
                     <li>
                         <a
                             className="text-white no-underline hover:underline"
-                            href={festivalPage}
+                            href="/mentions-legales"
                         >
-                            Festival
+                            Mentions légales
                         </a>
                     </li>
                     <li>
                         <a
                             className="text-white no-underline hover:underline"
-                            href="http://localhost/react-wordpress-projet/wordpress/evenement/"
+                            href="/confidentialite"
                         >
-                            Programme
+                            Politique de confidentialité
                         </a>
                     </li>
                     <li>
                         <a
                             className="text-white no-underline hover:underline"
-                            href="https://tickets.paris2024.org/"
+                            href="/contact"
                         >
-                            Billetterie
+                            Contact
                         </a>
                     </li>
                 </ul>
             </nav>
-        </header>
+        </footer>
     );
 }
 
-export default Header;
+export default Footer;
