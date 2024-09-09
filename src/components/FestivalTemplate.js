@@ -1,88 +1,91 @@
-// src/components/FestivalTemplate.js
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import ConcertMap from './ConcertMap';
+import Filter from './Filter'; // Importez votre composant Filter
 
 const FestivalTemplate = () => {
-    const mapRef = useRef(null); // Référence au DOM pour la carte
-    const lat = 51.678418; // Latitude
-    const lng = 7.809007; // Longitude
+  const [selectedLocations, setSelectedLocations] = useState([]);
+  const [events, setEvents] = useState([]); // État pour stocker les événements
+  const [selectedVenues, setSelectedVenues] = useState([]); // État pour les lieux sélectionnés
+  const [venues, setVenues] = useState([]); // État pour les lieux disponibles
 
-    useEffect(() => {
-        const loadGoogleMapsScript = () => {
-            return new Promise((resolve, reject) => {
-                if (document.getElementById('google-maps-script')) {
-                    resolve(); // Si le script existe déjà, résolvez la promesse
-                    return;
-                }
+  useEffect(() => {
+    const fetchEvents = async () => {
+      try {
+        const response = await fetch('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events');
+        const data = await response.json();
+        setEvents(data.events); // Stocker les événements dans l'état
+  
+        // Extraire les lieux (venues) uniques
+        const uniqueVenues = Array.from(new Set(data.events.map(event => event.venue))).filter(Boolean);
+        setVenues(uniqueVenues);
+      } catch (error) {
+        console.error('Erreur lors de la récupération des événements:', error);
+      }
+    };
+  
+    fetchEvents();
+  }, []);  // L'effet s'exécute une seule fois au montage
 
-                const script = document.createElement('script');
-                script.id = 'google-maps-script';
-                script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyD1QBnGqdxOT6c3bU33E3rGH0z3bxX62YA`; // Remplacez par votre clé API
-                script.async = true;
-                script.defer = true;
-                script.onload = () => resolve();
-                script.onerror = (error) => reject(error);
-
-                document.body.appendChild(script);
-            });
+  const handleGroupClick = (group) => {
+    const filteredEvents = events.filter(event => event.title === group);
+    const filteredLocations = filteredEvents.map(event => {
+      if (event.venue) {
+        console.log('Venue data:', event.venue); // Ajoutez un log pour vérifier les données de la venue
+        return {
+          id: event.venue.id,
+          latitude: event.venue.latitude || 48.8566, // Remplacez par les vraies coordonnées
+          longitude: event.venue.longitude || 2.3522,  // Remplacez par les vraies coordonnées
+          address: event.venue.address || 'Adresse non fournie',
         };
+      }
+      return null;
+    }).filter(location => location !== null);
 
-        const initializeMap = () => {
-            const mapOptions = {
-                center: { lat, lng },
-                zoom: 5,
-            };
+    console.log('Filtered locations:', filteredLocations); // Log pour voir les lieux filtrés
+    setSelectedLocations(filteredLocations);
+  };
 
-            if (mapRef.current) {
-                new window.google.maps.Map(mapRef.current, mapOptions); // Initialisez la carte
-            }
-        };
+  const handleVenueChange = (venueName, isChecked) => {
+    if (isChecked) {
+      setSelectedVenues([...selectedVenues, venueName]);
+    } else {
+      setSelectedVenues(selectedVenues.filter(venue => venue !== venueName));
+    }
+  };
 
-        loadGoogleMapsScript()
-            .then(initializeMap)
-            .catch((error) => {
-                console.error('Error loading Google Maps script:', error);
-            });
-    }, [lat, lng]); // Dépendances pour le useEffect
+  useEffect(() => {
+    // Mettre à jour les lieux sélectionnés en fonction des lieux filtrés
+    const updatedLocations = venues.filter(venue => selectedVenues.includes(venue.name));
+    setSelectedLocations(updatedLocations); // Mettez à jour les lieux affichés sur la carte
+  }, [selectedVenues, venues]); // Exécutez cet effet lorsque selectedVenues ou venues changent
 
-    return (
-        <div>
-            <div className="relative bottom-1 font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-black before:opacity-50 before:z-10">
-                <img src="../../assets/bandeau.jpg" alt="Banner Image" className="absolute inset-0 w-full h-full object-cover" />
-                <div className="min-h-[350px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-center items-center text-center text-white p-6">
-                    <h2 className="sm:text-4xl text-2xl font-bold mb-6">Festival</h2>
-                    <p className="sm:text-lg text-base text-center text-gray-200">
-                        Embark on unforgettable journeys. Book your dream vacation today!
-                    </p>
-                </div>
-            </div>
+  // Groupes disponibles à partir des événements
+  const groups = [...new Set(events.map(event => event.title))];
 
-            {/* Google Map and Text Section */}
-            <div className="bg-gray-100 px-6 py-12 font-[sans-serif]">
-                <div className="container mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col md:flex-row gap-10">
-                    {/* Google Map Section */}
-                    <div className="md:w-1/2" style={{ height: '400px' }}>
-                        <div id="map" ref={mapRef} style={{ height: '100%', width: '100%' }}></div>
-                    </div>
-
-                    {/* Text Section */}
-                    <div className="md:w-1/2">
-                        <h2 className="text-3xl font-extrabold text-[#150463] mb-4">
-                            Immerse Yourself in Creativity
-                        </h2>
-                        <p className="text-gray-700 text-sm leading-6">
-                            Unleash your imagination and explore a world of endless possibilities. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
-                        <ul className="list-disc text-sm text-gray-700 space-y-2 pl-4 mt-6">
-                            <li>Discover innovative ideas.</li>
-                            <li>Create unique projects.</li>
-                            <li>Collaborate with like-minded individuals.</li>
-                            <li>Transform your visions into reality.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+  return (
+    <div className="container mx-auto p-6">
+      <h1 className="text-4xl font-bold text-center mb-6">Festival Template</h1>
+      <h2 className="text-2xl font-semibold mb-4">Sélectionner un groupe :</h2>
+      <div className="flex flex-wrap justify-center mb-6">
+        {groups.map(group => (
+          <button 
+            key={group} 
+            onClick={() => handleGroupClick(group)} 
+            className="bg-blue-500 text-white px-4 py-2 m-2 rounded hover:bg-blue-600 transition duration-200"
+          >
+            {group}
+          </button>
+        ))}
+      </div>
+      <h2 className="text-2xl font-semibold mb-4">Sélectionner des lieux :</h2>
+      <div className="mb-6">
+        <Filter venues={venues} selectedVenues={selectedVenues} onVenueChange={handleVenueChange} />
+      </div>
+      <div className="h-96">
+        <ConcertMap locations={selectedLocations} />
+      </div>
+    </div>
+  );
 };
 
 export default FestivalTemplate;

@@ -1,12 +1,13 @@
-// src/components/Header.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-function Header({ title, festivalPage}) {
+function Header({ title, festivalPage }) {
     return (
         <header className="flex justify-between items-center p-5 bg-black text-white">
             <div className="header-left">
-                <h1 className="m-0">{title}</h1>
+                <Link to="/" className="text-white no-underline hover:underline">
+                    <h1 className="m-0">{title}</h1>
+                </Link>
             </div>
             <nav className="header-right">
                 <ul className="flex list-none m-0 p-0 gap-4">
@@ -19,12 +20,12 @@ function Header({ title, festivalPage}) {
                         </a>
                     </li>
                     <li>
-                        <a
+                        <Link
+                            to="/programme" 
                             className="text-white no-underline hover:underline"
-                            href="http://localhost/react-wordpress-projet/wordpress/evenement/"
                         >
                             Programme
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <a

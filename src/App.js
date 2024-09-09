@@ -1,12 +1,22 @@
 // src/App.js
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importer le Router
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Posts from './components/Posts';
 import Header from './components/Header';
-import FestivalTemplate from './components/FestivalTemplate'; // Importer le composant FestivalTemplate
-import TemplateAccueil from './components/TemplateAccueil'; // Importer le composant TemplateAccueil
-import wpApiSettings from './config'; // Importer wpApiSettings
+import FestivalTemplate from './components/FestivalTemplate';
+import TemplateAccueil from './components/TemplateAccueil';
+import Programme from './components/Programme';
+import GroupeDetails from './components/GroupeDetails';
+import wpApiSettings from './config';
+
+// Exemple de données pour les lieux
+const placesData = [
+    { lat: 48.8588443, lng: 2.2943506, type: 'concert', name: 'Concert 1' },
+    { lat: 48.865633, lng: 2.321236, type: 'toilet', name: 'Toilet 1' },
+    { lat: 48.860846, lng: 2.337992, type: 'restaurant', name: 'Restaurant 1' },
+    // Ajoutez d'autres lieux ici
+];
 
 function App() {
     const [siteTitle, setSiteTitle] = useState('');
@@ -16,9 +26,9 @@ function App() {
 
     useEffect(() => {
         setSiteTitle(wpApiSettings.headerTitle || 'live event');
-        setFestivalPage(wpApiSettings.festivalPage || '/festival'); // URL de la page Billetterie
-        setProgramPage(wpApiSettings.programPage || '/programme'); // URL de la page Programme
-        setTicketPage(wpApiSettings.ticketPage || '/billetterie'); // URL de la page Billetterie
+        setFestivalPage(wpApiSettings.festivalPage || '/festival');
+        setProgramPage(wpApiSettings.programPage || '/programme');
+        setTicketPage(wpApiSettings.ticketPage || '/billetterie');
     }, []);
 
     return (
@@ -32,9 +42,11 @@ function App() {
                 />
                 <main>
                     <Routes>
-                        <Route path="/" element={<TemplateAccueil />} /> {/* Page d'accueil */}
-                        <Route path="/festival" element={<FestivalTemplate />} /> {/* Page Festival */}
-                        <Route path="/posts" element={<Posts />} /> {/* Page Posts */}
+                        <Route path="/" element={<TemplateAccueil places={placesData} />} />
+                        <Route path="/festival" element={<FestivalTemplate places={placesData} />} />
+                        <Route path="/posts" element={<Posts />} />
+                        <Route path="/programme" element={<Programme />} />
+                        <Route path="/groupe/:id" element={<GroupeDetails places={placesData} />} />
                     </Routes>
                 </main>
             </div>
