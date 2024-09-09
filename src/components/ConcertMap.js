@@ -59,7 +59,7 @@ const ConcertMap = React.memo(({ locations }) => {
       <Map
         defaultCenter={center}
         defaultZoom={zoom}
-        style={{ width: '800px', height: '400px' }} // Assurez-vous que les dimensions sont définies
+        style={{ width: '100%', height: '100%' }} // Assurez-vous que les dimensions sont définies
       >
         {validLocations.map((location) => (
           <Marker

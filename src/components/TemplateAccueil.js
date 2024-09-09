@@ -115,7 +115,7 @@ const TemplateAccueil = () => {
             </section>  
 
             {/* Section pour afficher le template du festival */}
-            <section className="py-12 bg-gray-100">
+            <section className="py-12 bg-gray-250">
                 <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
                     <FestivalTemplate />  {/* Ajout de FestivalTemplate */}
                 </div>
