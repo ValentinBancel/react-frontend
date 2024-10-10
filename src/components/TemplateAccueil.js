@@ -1,6 +1,7 @@
 import React from 'react';
 import Programme from './Programme';
-import FestivalTemplate from './FestivalTemplate';  // Importer le composant FestivalTemplate
+import MapComponent from './MapComponent';
+
 
 const placesData = [
     { lat: 48.8588443, lng: 2.2943506, type: 'concert', name: 'Concert 1' },
@@ -114,12 +115,13 @@ const TemplateAccueil = () => {
                 </div>
             </section>  
 
-            {/* Section pour afficher le template du festival */}
-            <section className="py-12 bg-gray-250">
-                <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-                    <FestivalTemplate />  {/* Ajout de FestivalTemplate */}
-                </div>
-            </section>
+      <section>
+        <h2>Carte des Lieux</h2>
+        {/* Intégration du composant MapComponent */}
+        <MapComponent />
+      </section>
+
+          
         </>
     );
 };
