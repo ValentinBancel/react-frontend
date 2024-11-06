@@ -16,7 +16,7 @@ const GroupeDetails = () => {
                     throw new Error('Erreur de chargement des détails du groupe');
                 }
                 const data = await response.json();
-                console.log(data); // Pour inspecter la réponse
+                console.log(data); 
                 setGroup(data);
             } catch (err) {
                 setError(err.message);
@@ -58,8 +58,8 @@ const GroupeDetails = () => {
                         <strong>Lieu :</strong> 
                         {
                             group.venue && Array.isArray(group.venue) && group.venue.length > 0
-                            ? group.venue[0].venue // Utilisez cette ligne si venue est un tableau
-                            : (group.venue && group.venue.name) // Utilisez cette ligne si venue est un objet
+                            ? group.venue[0].venue
+                            : (group.venue && group.venue.name) 
                                 ? group.venue.name
                                 : 'Non spécifié'
                         }

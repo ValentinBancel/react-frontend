@@ -10,7 +10,7 @@ const Programme = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                // Utiliser le nom du service WordPress dans le réseau Docker
+               
                 const response = await fetch('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/');
                 if (!response.ok) {
                     throw new Error('Erreur de chargement des événements');

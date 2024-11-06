@@ -21,7 +21,7 @@ const MapWithCheckboxes = () => {
       .get('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/')
       .then((response) => {
         const eventsData = response.data.events;
-        console.log(eventsData); // Inspecter les données dans la console
+        console.log(eventsData);
         setEvents(eventsData);
       })
       .catch((error) => {
@@ -29,7 +29,7 @@ const MapWithCheckboxes = () => {
       });
   }, []);
 
-  // Fonction pour obtenir les concerts avec leurs emplacements et vérifier les coordonnées
+
   const getConcerts = () => {
     return events
       .filter(event => event.venue && event.venue.latitude && event.venue.longitude)
@@ -39,7 +39,7 @@ const MapWithCheckboxes = () => {
         lng: parseFloat(event.venue.longitude),
         name: event.title,
         description: `Concert: ${event.title}`,
-        url: event.url // Inclure l'URL de l'événement
+        url: event.url 
       }));
   };
 
