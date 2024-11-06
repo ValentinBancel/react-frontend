@@ -1,7 +1,10 @@
 import React from 'react';
 import Programme from './Programme';
 import MapComponent from './MapComponent';
-
+import Image from '../assets/yvette-de-wit-NYrVisodQ2M-unsplash.jpg';  
+import Partenaire1 from '../assets/partenaire1.png';
+import Partenaire2 from '../assets/partenaire2.jpg';
+import Partenaire3 from '../assets/partenaire3.jpg';
 
 const placesData = [
     { lat: 48.8588443, lng: 2.2943506, type: 'concert', name: 'Concert 1' },
@@ -10,28 +13,30 @@ const placesData = [
     { lat: 48.8728443, lng: 2.2943506, type: 'concert', name: 'Concert 2' },
     { lat: 48.875633, lng: 2.321236, type: 'toilet', name: 'Toilet 2' },
     { lat: 48.870846, lng: 2.337992, type: 'restaurant', name: 'Restaurant 2' },
-    // Ajoutez d'autres lieux ici
 ];
 
 const TemplateAccueil = () => {
     return (
         <>
             {/* Section d'accueil avec une image de fond */}
-            <section className="relative bg-[url(https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)] bg-cover bg-center bg-no-repeat">
+            <section 
+                className="relative bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${Image})` }}
+            >
                 <div className="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25"></div>
                 <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
                     <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
                         <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
                             Let us find your
-                            <strong className="block font-extrabold text-blue-500"> Lorem Ipsum. </strong>
+                            <strong className="block font-extrabold text-gray-900"> Live Event Festival </strong>
                         </h1>
                         <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea!
+                            Bienvenue sur notre site web. Découvrez les événements à venir et réservez vos billets dès aujourd'hui.
                         </p>
                         <div className="mt-8 flex flex-wrap gap-2 text-center">
                             <a
-                                href="#"
-                                className="block w-full rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-950 focus:outline-none focus:ring sm:w-auto"
+                                href="/programme"
+                                className="block w-full rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-950 focus:outline-none focus:ring sm:w-auto"
                             >
                                 Get Started
                             </a>
@@ -67,43 +72,57 @@ const TemplateAccueil = () => {
                 </div>
             </section>
 
-            {/* Section pour les partenaires */}
             <section className="bg-blue-900 text-white">
                 <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                     <div className="mx-auto max-w-lg text-center">
                         <h2 className="text-3xl font-bold sm:text-4xl">Nos partenaires</h2>
                     </div>
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {Array(3).fill().map((_, index) => (
-                            <a
-                                key={index}
-                                className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
-                                href="#"
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="size-10 text-pink-500"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                                    <path
-                                        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                                    />
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-                                    />
-                                </svg>
-                                <h2 className="mt-4 text-xl font-bold text-white">Digital campaigns</h2>
-                                <p className="mt-1 text-sm text-gray-300">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
-                                </p>
-                            </a>
-                        ))}
+                        <a
+                            key="partenaire1"
+                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            href="#"
+                        >
+                            <img
+                                className="w-16 h-16 object-cover rounded-full mx-auto"
+                                src={Partenaire1} 
+                                alt="Partenaire 1"
+                            />
+                            <h2 className="mt-4 text-xl font-bold text-white">Partner 1</h2>
+                            <p className="mt-1 text-sm text-gray-300">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+                            </p>
+                        </a>
+                        <a
+                            key="partenaire2"
+                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            href="#"
+                        >
+                            <img
+                                className="w-16 h-16 object-cover rounded-full mx-auto"
+                                src={Partenaire2} 
+                                alt="Partenaire 2"
+                            />
+                            <h2 className="mt-4 text-xl font-bold text-white">Partner 2</h2>
+                            <p className="mt-1 text-sm text-gray-300">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+                            </p>
+                        </a>
+                        <a
+                            key="partenaire3"
+                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            href="#"
+                        >
+                            <img
+                                className="w-16 h-16 object-cover rounded-full mx-auto"
+                                src={Partenaire3} 
+                                alt="Partenaire 3"
+                            />
+                            <h2 className="mt-4 text-xl font-bold text-white">Partner 3</h2>
+                            <p className="mt-1 text-sm text-gray-300">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex ut quo possimus adipisci distinctio alias voluptatum blanditiis laudantium.
+                            </p>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -115,13 +134,14 @@ const TemplateAccueil = () => {
                 </div>
             </section>  
 
-      <section>
-        <h2>Carte des Lieux</h2>
-        {/* Intégration du composant MapComponent */}
-        <MapComponent />
-      </section>
-
-          
+            <section className="py-12 bg-white-100">
+                <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold sm:text-4xl ">Carte des Lieux</h2>
+                    <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                        <MapComponent />
+                    </div>
+                </div>
+            </section>
         </>
     );
 };

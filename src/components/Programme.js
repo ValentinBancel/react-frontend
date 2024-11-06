@@ -1,3 +1,4 @@
+// src/components/Programme.js
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +10,8 @@ const Programme = () => {
     useEffect(() => {
         const fetchEvents = async () => {
             try {
-                const response = await fetch('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events');
+                // Utiliser le nom du service WordPress dans le réseau Docker
+                const response = await fetch('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/');
                 if (!response.ok) {
                     throw new Error('Erreur de chargement des événements');
                 }

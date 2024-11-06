@@ -12,15 +12,16 @@ const MapWithCheckboxes = () => {
   const [showToilettes, setShowToilettes] = useState(false);
   const [showBuvettes, setShowBuvettes] = useState(false);
   const [showConcerts, setShowConcerts] = useState(false);
-  const [events, setEvents] = useState([]); // Pour stocker les événements
+  const [events, setEvents] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
 
   // Charger les événements depuis l'API WordPress
   useEffect(() => {
     axios
-      .get('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events')
+      .get('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/')
       .then((response) => {
         const eventsData = response.data.events;
+        console.log(eventsData); // Inspecter les données dans la console
         setEvents(eventsData);
       })
       .catch((error) => {
@@ -28,16 +29,17 @@ const MapWithCheckboxes = () => {
       });
   }, []);
 
-  // Fonction pour obtenir les concerts avec leurs emplacements
+  // Fonction pour obtenir les concerts avec leurs emplacements et vérifier les coordonnées
   const getConcerts = () => {
     return events
-      .filter(event => event.venue && event.venue.latitude && event.venue.longitude) // Assurez-vous que la latitude et la longitude sont présentes
+      .filter(event => event.venue && event.venue.latitude && event.venue.longitude)
       .map(event => ({
         id: event.id,
         lat: parseFloat(event.venue.latitude),
         lng: parseFloat(event.venue.longitude),
-        name: event.title, // Utiliser le titre de l'événement
-        description: `Concert: ${event.title}` // Définir la description
+        name: event.title,
+        description: `Concert: ${event.title}`,
+        url: event.url // Inclure l'URL de l'événement
       }));
   };
 
@@ -83,13 +85,13 @@ const MapWithCheckboxes = () => {
             {showToilettes && (
               <>
                 <Marker
-                  key={`toilettes-1`}
+                  key="toilettes-1"
                   position={{ lat: 48.857, lng: 2.352 }}
                   title="Toilettes 1"
                   onClick={() => setSelectedLocation({ name: 'Toilettes 1', description: 'Toilettes publiques situées près du parc.', lat: 48.857, lng: 2.352 })}
                 />
                 <Marker
-                  key={`toilettes-2`}
+                  key="toilettes-2"
                   position={{ lat: 48.856, lng: 2.354 }}
                   title="Toilettes 2"
                   onClick={() => setSelectedLocation({ name: 'Toilettes 2', description: 'Toilettes accessibles aux personnes handicapées.', lat: 48.856, lng: 2.354 })}
@@ -99,18 +101,21 @@ const MapWithCheckboxes = () => {
             {showBuvettes && (
               <>
                 <Marker
-                  key={`buvettes-1`}
+                  key="buvettes-1"
                   position={{ lat: 48.858, lng: 2.353 }}
                   title="Buvette 1"
                   onClick={() => setSelectedLocation({ name: 'Buvette 1', description: 'Petite buvette avec des boissons rafraîchissantes.', lat: 48.858, lng: 2.353 })}
                 />
                 <Marker
-                  key={`buvettes-2`}
+                  key="buvettes-2"
                   position={{ lat: 48.859, lng: 2.355 }}
                   title="Buvette 2"
                   onClick={() => setSelectedLocation({ name: 'Buvette 2', description: 'Buvette avec des snacks et des boissons.', lat: 48.859, lng: 2.355 })}
                 />
               </>
+            )}
+            {showConcerts && getConcerts().length === 0 && (
+              <p>Aucun concert avec emplacement disponible pour le moment.</p>
             )}
             {showConcerts && getConcerts().map((location) => (
               <Marker
@@ -130,6 +135,11 @@ const MapWithCheckboxes = () => {
                 <div>
                   <h3>{selectedLocation.name}</h3>
                   <p>{selectedLocation.description}</p>
+                  {selectedLocation.url && (
+                    <a href={selectedLocation.url} target="_blank" rel="noopener noreferrer">
+                      Plus d'infos
+                    </a>
+                  )}
                 </div>
               </InfoWindow>
             )}

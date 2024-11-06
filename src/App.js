@@ -10,8 +10,8 @@ import GroupeDetails from './components/GroupeDetails';
 import Footer from './components/Footer';
 import Contact from './components/Contact';  // Importer le composant Contact
 import wpApiSettings from './config';
-
-
+import Confidentialite from './components/Confidentialite';  // Importer le composant Confidentialite
+import Mentionlegal from './components/mentionlegal';
 
 function App() {
     const [siteTitle, setSiteTitle] = useState('');
@@ -47,6 +47,8 @@ function App() {
                         <Route path="/programme" element={<Programme />} />
                         <Route path="/groupe/:id" element={<GroupeDetails />} />
                         <Route path="/contact" element={<Contact />} /> {/* Route pour la page Contact */}
+                        <Route path="/confidentialite" element={<Confidentialite />} /> {/* Route pour la politique de confidentialité */}
+                        <Route path="/mentions-legales" element={<Mentionlegal />} /> {/* Route pour les mentions légales */}
                     </Routes>
                 </main>
                 {/* Footer présent sur toutes les pages */}
