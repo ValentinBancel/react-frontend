@@ -18,14 +18,14 @@ function FestivalTemplate() {
             </div>
             <div className="lg:py-24">
               <h2 className="text-3xl font-bold sm:text-4xl">Le Festival</h2>
+              <p className="mt-4 text-gray-600"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.
+              
+               </p>
               <p className="mt-4 text-gray-600">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.
               </p>
-              <p className="mt-4 text-gray-600">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.
-              </p>
-              <div className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400">
-                <a href="/programme">Get Started</a>
+              <div className="mt-8 inline-block rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white transition  hover:bg-indigo-800  focus:outline-none focus:ring focus:ring-yellow-400">
+                  <a href="/programme">Get Started</a>
               </div>
             </div>
           </div>

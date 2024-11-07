@@ -20,23 +20,23 @@ const TemplateAccueil = () => {
         <>
             {/* Section d'accueil avec une image de fond */}
             <section 
-                className="relative bg-cover bg-center bg-no-repeat"
+                className="relative bg-cover bg-center bg-no-repeat bg-fixed contrast-125"
                 style={{ backgroundImage: `url(${Image})` }}
             >
                 <div className="absolute inset-0 bg-gray-900/75 sm:bg-transparent sm:from-gray-900/95 sm:to-gray-900/25"></div>
                 <div className="relative mx-auto max-w-screen-xl px-4 py-32 sm:px-6 lg:flex lg:h-screen lg:items-center lg:px-8">
                     <div className="max-w-xl text-center ltr:sm:text-left rtl:sm:text-right">
-                        <h1 className="text-3xl font-extrabold text-white sm:text-5xl">
-                            Let us find your
-                            <strong className="block font-extrabold text-gray-900"> Live Event Festival </strong>
+                        <h1 className="text-3xl font-extrabold  text-gray-850 sm:text-5xl">
+                            WELCOME TO THE
+                            <strong className="block font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-gray-950 to-indigo-500"> Live Event Festival !</strong>
                         </h1>
-                        <p className="mt-4 max-w-lg text-white sm:text-xl/relaxed">
+                        <p className="mt-4 max-w-lg  text-white drop-shadow sm:text-xl/relaxed">
                             Bienvenue sur notre site web. Découvrez les événements à venir et réservez vos billets dès aujourd'hui.
                         </p>
-                        <div className="mt-8 flex flex-wrap gap-2 text-center">
+                        <div className="mt-8 ml-36 flex flex-wrap gap-2 text-center">
                             <a
-                                href="/programme"
-                                className="block w-full rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-950 focus:outline-none focus:ring sm:w-auto"
+                                href="/Programme"
+                                className="block w-full rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-800 focus:outline-none focus:ring sm:w-auto"
                             >
                                 Get Started
                             </a>
@@ -63,7 +63,7 @@ const TemplateAccueil = () => {
                             </p>
                             <a
                                 href="https://tickets.paris2024.org/"
-                                className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                                className="mt-8 inline-block rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white transition  hover:bg-indigo-800  focus:outline-none focus:ring focus:ring-yellow-400"
                             >
                                 Get Started Today
                             </a>
@@ -72,7 +72,7 @@ const TemplateAccueil = () => {
                 </div>
             </section>
 
-            <section className="bg-blue-900 text-white">
+            <section className="bg-indigo-950 text-white">
                 <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                     <div className="mx-auto max-w-lg text-center">
                         <h2 className="text-3xl font-bold sm:text-4xl">Nos partenaires</h2>
@@ -80,7 +80,7 @@ const TemplateAccueil = () => {
                     <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                         <a
                             key="partenaire1"
-                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            className="block rounded-xl border border-gray-950 p-8 shadow-xl transition hover:border-white"
                             href="#"
                         >
                             <img
@@ -95,7 +95,7 @@ const TemplateAccueil = () => {
                         </a>
                         <a
                             key="partenaire2"
-                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            className="block rounded-xl border border-gray-950 p-8 shadow-xl transition hover:border-white"
                             href="#"
                         >
                             <img
@@ -110,7 +110,7 @@ const TemplateAccueil = () => {
                         </a>
                         <a
                             key="partenaire3"
-                            className="block rounded-xl border border-gray-800 p-8 shadow-xl transition hover:border-white"
+                            className="block rounded-xl border border-gray-950 p-8 shadow-xl transition hover:border-white"
                             href="#"
                         >
                             <img

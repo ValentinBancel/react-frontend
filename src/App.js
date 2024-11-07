@@ -21,10 +21,10 @@ function App() {
 
    
     useEffect(() => {
-        setSiteTitle(wpApiSettings.headerTitle || 'live event');
-        setFestivalPage(wpApiSettings.festivalPage || '/festival');
-        setProgramPage(wpApiSettings.programPage || '/programme');
-        setTicketPage(wpApiSettings.ticketPage || '/billetterie');
+        setSiteTitle(wpApiSettings.headerTitle || 'Live Event');
+        setFestivalPage(wpApiSettings.festivalPage || '/Festival');
+        setProgramPage(wpApiSettings.programPage || '/Programme');
+        setTicketPage(wpApiSettings.ticketPage || '/Billetterie');
     }, []);
 
     return (
@@ -42,9 +42,9 @@ function App() {
                     <Routes>
                         <Route path="/" element={<TemplateAccueil />} /> 
                         {/* placesData est passé à TemplateAccueil */}
-                        <Route path="/festival" element={<FestivalTemplate />} />
+                        <Route path="/Festival" element={<FestivalTemplate />} />
                         <Route path="/posts" element={<Posts />} />
-                        <Route path="/programme" element={<Programme />} />
+                        <Route path="/Programme" element={<Programme />} />
                         <Route path="/groupe/:id" element={<GroupeDetails />} />
                         <Route path="/contact" element={<Contact />} /> 
                         <Route path="/confidentialite" element={<Confidentialite />} /> 

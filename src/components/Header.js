@@ -6,7 +6,7 @@ function Header({ title, festivalPage }) {
         <header className="flex justify-between items-center p-5 bg-black text-white">
             <div className="header-left">
                 <Link to="/" className="text-white no-underline hover:underline">
-                    <h1 className="m-0">{title}</h1>
+                    <h1 className="ml-9 font-semibold">{title}</h1>
                 </Link>
             </div>
             <nav className="header-right">

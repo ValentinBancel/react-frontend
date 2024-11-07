@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { FaMoneyBillWave, FaMapMarkerAlt, FaUser } from 'react-icons/fa';
+import Image from '../assets/melissa-askew-AUXanrckXn0-unsplash.jpg';  
 
 const GroupeDetails = () => {
     const { id } = useParams(); 
@@ -37,13 +38,12 @@ const GroupeDetails = () => {
             {/* Bannière en arrière-plan */}
             <div className="relative">
                 <img
-                    src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                    alt="Bannière"
-                    className="w-full h-64 object-cover opacity-90"
+                   style={{ backgroundImage: `url(${Image})` }}
+                    className="w-full h-72 bg-middle bg-cover bg-no-repeat"
                 />
             </div>
             {/* Carte au premier plan */}
-            <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-lg mt-8 z-10 mt-20">
+            <div className="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-2xl mt-20 z-10 mt-20 mb-20">
                 <h2 className="text-3xl font-bold mb-4">{group.title}</h2>
                 <p className="text-gray-700 mb-2">
                     <strong>Description :</strong> {group.description || 'Aucune description fournie'}
@@ -77,7 +77,7 @@ const GroupeDetails = () => {
                 </p>
                 <h2 className="font-bold mt-8">Commender son billet</h2>
                 <a href="https://tickets.paris2024.org/" 
-                    className="mt-8 inline-block rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                    className="mt-8 inline-block rounded  bg-gray-900 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-800 focus:outline-none focus:ring focus:ring-yellow-400"
                 >
                     Get Started Today
                 </a>   

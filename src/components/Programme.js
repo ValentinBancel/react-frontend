@@ -40,7 +40,7 @@ const Programme = () => {
                             <h2 className="text-xl font-semibold">{event.title}</h2>
                             <p className="text-gray-600">Date de début : {new Date(event.start_date).toLocaleString()}</p>
                             <p className="text-gray-600">Date de fin : {new Date(event.end_date).toLocaleString()}</p>
-                            <Link to={`/groupe/${event.id}`} className="mt-4 inline-block text-blue-600 hover:underline">
+                            <Link to={`/groupe/${event.id}`} className="mt-4 inline-block text-indigo-900 hover:underline">
                                 Voir plus sur ce groupe
                             </Link>
                         </div>
