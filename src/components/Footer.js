@@ -28,10 +28,10 @@ function Footer() {
                             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Suivez-nous</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="https://github.com/your-github" className="hover:underline">Github</a>
+                                    <a href="https://github.com/Lykkss" className="hover:underline">Github</a>
                                 </li>
                                 <li>
-                                    <a href="https://discord.gg/your-discord" className="hover:underline">Discord</a>
+                                    <a href="https://discord.com/" className="hover:underline">Discord</a>
                                 </li>
                             </ul>
                         </div>
