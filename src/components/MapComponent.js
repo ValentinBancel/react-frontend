@@ -5,7 +5,6 @@ import axios from 'axios';
 // API Google Maps Key
 const GOOGLE_MAPS_API_KEY = 'AIzaSyD1QBnGqdxOT6c3bU33E3rGH0z3bxX62YA';
 
-// Coordonnées de Paris
 const parisCoordinates = { lat: 48.8566, lng: 2.3522 };
 
 const MapWithCheckboxes = () => {

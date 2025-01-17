@@ -62,7 +62,7 @@ const TemplateAccueil = () => {
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aut qui hic atque tenetur quis eius quos ea neque sunt, accusantium soluta minus veniam tempora deserunt? Molestiae eius quidem quam repellat.
                             </p>
                             <a
-                                href="https://tickets.paris2024.org/"
+                                href="https://www.ticketmaster.fr/fr"
                                 className="mt-8 inline-block rounded bg-gray-900 px-12 py-3 text-sm font-medium text-white transition  hover:bg-indigo-800  focus:outline-none focus:ring focus:ring-yellow-400"
                             >
                                 Get Started Today
