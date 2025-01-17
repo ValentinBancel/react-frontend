@@ -30,7 +30,7 @@ function Header({ title, festivalPage }) {
                     <li>
                         <a
                             className="text-white no-underline hover:underline"
-                            href="https://tickets.paris2024.org/"
+                            href="https://www.ticketmaster.fr/fr"
                         >
                             Billetterie
                         </a>
