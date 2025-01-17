@@ -12,6 +12,7 @@ import Contact from './components/Contact';
 import wpApiSettings from './config';
 import Confidentialite from './components/Confidentialite';  
 import Mentionlegal from './components/mentionlegal';
+import CookieConsent from "react-cookie-consent";
 
 function App() {
     const [siteTitle, setSiteTitle] = useState('');
@@ -19,7 +20,6 @@ function App() {
     const [programPage, setProgramPage] = useState('');
     const [ticketPage, setTicketPage] = useState('');
 
-   
     useEffect(() => {
         setSiteTitle(wpApiSettings.headerTitle || 'Live Event');
         setFestivalPage(wpApiSettings.festivalPage || '/Festival');
@@ -51,6 +51,28 @@ function App() {
                         <Route path="/mentions-legales" element={<Mentionlegal />} /> 
                     </Routes>
                 </main>
+
+                {/* Bannière de consentement aux cookies */}
+                <CookieConsent
+                    location="bottom"
+                    buttonText="J'accepte"
+                    declineButtonText="Je refuse"
+                    cookieName="myAwesomeCookieConsent"
+                    style={{ background: "#2B373B", color: "#fff" }}
+                    buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                    declineButtonStyle={{ color: "#fff", background: "#6c757d", fontSize: "13px" }}
+                    expires={150}
+                    enableDeclineButton
+                    onAccept={() => {
+                        console.log("Cookies acceptés !");
+                    }}
+                    onDecline={() => {
+                        console.log("Cookies refusés.");
+                    }}
+                >
+                    Ce site utilise des cookies pour améliorer votre expérience utilisateur. Consultez notre <a href="/confidentialite" style={{ color: "#4CAF50" }}>Politique de confidentialité</a> pour en savoir plus.
+                </CookieConsent>
+
                 <Footer />
             </div>
         </Router>
