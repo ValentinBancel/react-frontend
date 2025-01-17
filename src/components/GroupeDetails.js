@@ -76,7 +76,7 @@ const GroupeDetails = () => {
                     <strong>Date de fin :</strong> {new Date(group.end_date).toLocaleString()}
                 </p>
                 <h2 className="font-bold mt-8">Commender son billet</h2>
-                <a href="https://tickets.paris2024.org/" 
+                <a href="https://www.ticketmaster.fr/fr" 
                     className="mt-8 inline-block rounded  bg-gray-900 px-12 py-3 text-sm font-medium text-white transition hover:bg-indigo-800 focus:outline-none focus:ring focus:ring-yellow-400"
                 >
                     Get Started Today
