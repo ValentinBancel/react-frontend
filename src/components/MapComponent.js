@@ -3,7 +3,7 @@ import { Map, APIProvider, Marker, InfoWindow } from '@vis.gl/react-google-maps'
 import axios from 'axios';
 
 // API Google Maps Key
-const GOOGLE_MAPS_API_KEY = 'AIzaSyD1QBnGqdxOT6c3bU33E3rGH0z3bxX62YA';
+const GOOGLE_MAPS_API_KEY = 'AIzaSyBQo5nxo05_KSMmN3lbJNyAaRoZ0zgUNac';
 
 const parisCoordinates = { lat: 48.8566, lng: 2.3522 };
 
