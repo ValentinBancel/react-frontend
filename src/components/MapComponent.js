@@ -20,7 +20,6 @@ const MapWithCheckboxes = () => {
       .get('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/')
       .then((response) => {
         const eventsData = response.data.events;
-        console.log(eventsData);
         setEvents(eventsData);
       })
       .catch((error) => {
@@ -28,19 +27,58 @@ const MapWithCheckboxes = () => {
       });
   }, []);
 
-
+  // Extraire les concerts avec coordonnées valides
   const getConcerts = () => {
-    return events
+    const concerts = events
       .filter(event => event.venue && event.venue.latitude && event.venue.longitude)
       .map(event => ({
         id: event.id,
         lat: parseFloat(event.venue.latitude),
         lng: parseFloat(event.venue.longitude),
-        name: event.title,
+        name: event.venue.venue,
         description: `Concert: ${event.title}`,
-        url: event.url 
+        url: event.url
       }));
+    return concerts;
   };
+
+  const handleFetchCoordinates = async (address) => {
+    try {
+      const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json`, {
+        params: {
+          address: address,
+          key: GOOGLE_MAPS_API_KEY
+        }
+      });
+      if (response.data.results.length > 0) {
+        return response.data.results[0].geometry.location;
+      }
+    } catch (error) {
+      console.error('Erreur lors de la récupération des coordonnées', error);
+    }
+    return null;
+  };
+
+  // Enrichir les lieux sans coordonnées
+  useEffect(() => {
+    const enrichEventsWithCoordinates = async () => {
+      const enrichedEvents = await Promise.all(
+        events.map(async (event) => {
+          if (event.venue && !event.venue.latitude && event.venue.address) {
+            const coords = await handleFetchCoordinates(event.venue.address);
+            if (coords) {
+              event.venue.latitude = coords.lat;
+              event.venue.longitude = coords.lng;
+            }
+          }
+          return event;
+        })
+      );
+      setEvents(enrichedEvents);
+    };
+
+    enrichEventsWithCoordinates();
+  }, [events]);
 
   return (
     <div>
@@ -112,9 +150,6 @@ const MapWithCheckboxes = () => {
                   onClick={() => setSelectedLocation({ name: 'Buvette 2', description: 'Buvette avec des snacks et des boissons.', lat: 48.859, lng: 2.355 })}
                 />
               </>
-            )}
-            {showConcerts && getConcerts().length === 0 && (
-              <p>Aucun concert avec emplacement disponible pour le moment.</p>
             )}
             {showConcerts && getConcerts().map((location) => (
               <Marker
