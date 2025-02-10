@@ -1,7 +1,5 @@
 import React from 'react';
 import MapComponent from './MapComponent';
-import Programme from './Programme';
-import FAQ from './FAQ';
 import eventTicketImage from '../assets/melissa-askew-AUXanrckXn0-unsplash.jpg';
 
 function FestivalTemplate() {
@@ -32,15 +30,6 @@ function FestivalTemplate() {
         </div>
       </section>
 
-
-      {/* Section Programme */}
-      <section id="programme" className="py-12 bg-gray-50">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold sm:text-4xl mb-6">Programme</h2>
-          <Programme />
-        </div>
-      </section>
-
       {/* Section Carte des lieux */}
       <section className="py-12 bg-white">
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
@@ -48,14 +37,6 @@ function FestivalTemplate() {
           <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
             <MapComponent />
           </div>
-        </div>
-      </section>
-
-      {/* Section FAQ */}
-      <section id="faq" className="py-12 bg-gray-100">
-        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold sm:text-4xl mb-6">FAQ</h2>
-          <FAQ />
         </div>
       </section>
     </div>
