@@ -1,8 +1,5 @@
 import React from 'react';
 import MapComponent from './MapComponent';
-import Programme from './Programme';
-import FAQ from './faq';
-import NewsSection from './NewsSection';
 import eventTicketImage from '../assets/melissa-askew-AUXanrckXn0-unsplash.jpg';
 
 function FestivalTemplate() {
