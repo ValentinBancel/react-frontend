@@ -1,38 +1,23 @@
-# ReactJS
+# React WordPress Project
 
-Welcome to the ReactJS Party project! This project is a React frontend for a WordPress site.
+This project is a React frontend integrated with a WordPress backend. It aims to provide a seamless user experience by leveraging the strengths of both technologies.
 
 ## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Features](#features)
 - [Contributing](#contributing)
 - [License](#license)
 
-## Introduction
-
-ReactJS Party is a modern, responsive frontend built with ReactJS to enhance the user experience of a WordPress site. It leverages the power of React to create a dynamic and interactive interface.
-
-## Features
-
-- Responsive design
-- Fast and interactive UI
-- Easy to customize
-- Seamless integration with WordPress
-
 ## Installation
-
-To get started with the ReactJS Party project, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/reactjs-party.git
+    git clone git@github.com:Lykkss/react-frontend.git
     ```
 2. Navigate to the project directory:
     ```bash
-    cd reactjs-frontend
+    cd react-wordpress-project/react-frontend
     ```
 3. Install the dependencies:
     ```bash
@@ -41,31 +26,22 @@ To get started with the ReactJS Party project, follow these steps:
 
 ## Usage
 
-To start the development server, run:
-```bash
-npm start
-```
-This will launch the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Start the development server:
+    ```bash
+    npm start
+    ```
+2. Open your browser and navigate to `http://localhost:3000`.
+
+## Features
+
+- **React Frontend**: A modern, responsive user interface built with React.
+- **WordPress Backend**: A powerful content management system to handle the backend.
+- **API Integration**: Seamless communication between the frontend and backend using REST API.
 
 ## Contributing
 
-We welcome contributions to the ReactJS Party project! To contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch:
-    ```bash
-    git checkout -b feature-name
-    ```
-3. Make your changes and commit them:
-    ```bash
-    git commit -m "Add feature"
-    ```
-4. Push to the branch:
-    ```bash
-    git push origin feature-name
-    ```
-5. Create a pull request.
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
