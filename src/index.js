@@ -17,7 +17,7 @@ if (rootElement) {
 
 const festivalPage = "/festival";
 const programPage = "/programme";
-const ticketPage = "https://tickets.paris2024.org/";
+const ticketPage = "https://www.ticketmaster.fr/fr";
 
 
 const headerElement = document.getElementById('react-header');

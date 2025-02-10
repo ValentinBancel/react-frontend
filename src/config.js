@@ -1,5 +1,5 @@
 // src/config.js
 const wpApiSettings = window.wpApiSettings || {
-    baseUrl: 'http://localhost/react-wordpress-projet/wordpress',
+    baseUrl: 'http://projet-live-event.infinityfreeapp.com',
 };
 export default wpApiSettings;

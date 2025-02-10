@@ -2,7 +2,7 @@ import React from 'react';
 import MapComponent from './MapComponent';
 import Programme from './Programme';
 import FAQ from './FAQ';
-import NewsSection from './NewsSection'; // Composant des actualités
+import NewsSection from './NewsSection';
 import eventTicketImage from '../assets/melissa-askew-AUXanrckXn0-unsplash.jpg';
 
 function FestivalTemplate() {

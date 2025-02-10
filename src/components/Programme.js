@@ -11,7 +11,7 @@ const Programme = () => {
         const fetchEvents = async () => {
             try {
                
-                const response = await fetch('http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/');
+                const response = await fetch('http://projet-live-event.infinityfreeapp.com/wp-json/tribe/events/v1/events');
                 if (!response.ok) {
                     throw new Error('Erreur de chargement des événements');
                 }

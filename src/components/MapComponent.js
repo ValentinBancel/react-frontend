@@ -17,7 +17,7 @@ const MapWithCheckboxes = () => {
   // Charger les événements depuis l'API WordPress
   useEffect(() => {
     axios
-      .get("http://localhost/react-wordpress-projet/wordpress/wp-json/tribe/events/v1/events/")
+      .get("http://projet-live-event.infinityfreeapp.com/wp-json/tribe/events/v1/events")
       .then((response) => {
         const eventsData = response.data.events;
         setEvents(eventsData);
